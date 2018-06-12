@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(DecisionNode))]
 public class TriggerableObject : MonoBehaviour {
 
+    public string expectedTag;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +18,9 @@ public class TriggerableObject : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<DecisionNode>().Trigger();
+        if(other.tag == expectedTag)
+        {
+            GetComponent<DecisionNode>().Trigger();
+        }
     }
 }
