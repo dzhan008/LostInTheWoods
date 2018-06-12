@@ -20,7 +20,7 @@ public class DialogueObject : MonoBehaviour {
     {
         if(other.tag == "Player")
         {
-            AudioManager.Instance.Play(clipName);
+            SoundManager.Instance.Play(clipName);
             Destroy(this.gameObject);
         }
     }
