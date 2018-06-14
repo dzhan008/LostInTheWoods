@@ -17,8 +17,6 @@ public class CrystalPedestal : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Detecting!");
-        Debug.Log(other.tag);
         if(other.tag == "Pickable" && other.GetComponent<PickableObject>().name == "Crystal")
         {
             Debug.Log("Crystal inside!");

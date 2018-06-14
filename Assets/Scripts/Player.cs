@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
             }
 
         }
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+        if(OVRInput.GetDown(OVRInput.Button.One))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(GameObject.Find("hands:b_r_index3").transform.position);
