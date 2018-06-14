@@ -46,6 +46,34 @@ public class Player : MonoBehaviour {
             }
 
         }
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(GameObject.Find("hands:b_r_index3").transform.position);
+            if (Physics.Raycast(GameObject.Find("hands:b_r_index3").transform.position, transform.TransformDirection(Vector3.forward), out hit, 5.0f))
+            {
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                if (hit.transform.tag == "Glyph")
+                {
+                    hit.transform.gameObject.GetComponent<Glyph>().ChangeSymbol();
+                }
+                else if (hit.transform.tag == "Pickable")
+                {
+                    heldObject = hit.transform.gameObject;
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
+                    {
+                        hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                    hit.transform.parent = playerCamera.transform;
+                    holdingObject = true;
+                }
+            }
+            else
+            {
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                Debug.Log("Did not Hit");
+            }
+        }
         if (Input.GetKey(KeyCode.F))
         {
             interacting = true;
@@ -66,6 +94,7 @@ public class Player : MonoBehaviour {
     public void DetachObject()
     {
         Debug.Log("Detaching Object!");
+        if (heldObject == null) return;
         heldObject.transform.parent = null;
         if (heldObject.GetComponent<Rigidbody>() != null)
         {

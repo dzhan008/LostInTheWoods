@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CrystalManager : Singleton<CrystalManager> {
-    public SnapZone[] crystalHolder;
+    public CrystalPedestal[] crystalHolder;
     public int numCrystals = 4;
     public bool puzzleDone = false;
     //public GameObject[] appearObj;
@@ -30,7 +30,7 @@ public class CrystalManager : Singleton<CrystalManager> {
         }
 
     }*/
-    public bool checkPuzzle(GameObject obj)
+    /*public bool checkPuzzle(GameObject obj)
     {
         if (puzzleDone) return true;
         for (int i = 0; i < answerKey.Count; i++)
@@ -45,6 +45,21 @@ public class CrystalManager : Singleton<CrystalManager> {
             }
         }
         //showObjects();
+        puzzleDone = true;
+        elevator.GetComponent<PressurePlate>().enabled = true;
+        return true;
+
+    }*/
+
+    public bool UpdatePuzzle()
+    {
+        foreach(CrystalPedestal pedestal in crystalHolder)
+        {
+            if(!pedestal.crystalPlaced)
+            {
+                return false;
+            }
+        }
         puzzleDone = true;
         elevator.GetComponent<PressurePlate>().enabled = true;
         return true;

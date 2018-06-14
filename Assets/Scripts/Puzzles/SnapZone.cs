@@ -34,7 +34,7 @@ public class SnapZone : MonoBehaviour {
             Debug.Log("Exiting snap zone!");
             objectSnapped = false;
             if (!SwitchManager.Instance.puzzleDone) SwitchManager.Instance.checkPuzzle(other.gameObject);
-            if (!CrystalManager.Instance.puzzleDone) CrystalManager.Instance.checkPuzzle(other.gameObject);
+            //if (!CrystalManager.Instance.puzzleDone) CrystalManager.Instance.checkPuzzle(other.gameObject);
         }
     }
 
@@ -56,6 +56,6 @@ public class SnapZone : MonoBehaviour {
         }
         objectSnapped = true;
         if (!SwitchManager.Instance.puzzleDone) SwitchManager.Instance.checkPuzzle(obj);
-        if (!CrystalManager.Instance.puzzleDone) CrystalManager.Instance.checkPuzzle(obj);
+        //if (!CrystalManager.Instance.puzzleDone) CrystalManager.Instance.checkPuzzle(obj);
     }
 }
