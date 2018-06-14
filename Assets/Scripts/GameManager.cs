@@ -32,6 +32,14 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
+    public void UpdateCondition(string conditionName)
+    {
+        if(conditions.ContainsKey(conditionName))
+        {
+            conditions[conditionName].UpdateCondition();
+        }
+    }
+
     //Checks if a set of conditions has been fulfilled already.
     public bool CheckConditions(List<string> conditionNames)
     {
