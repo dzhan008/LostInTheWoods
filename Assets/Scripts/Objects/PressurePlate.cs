@@ -19,13 +19,19 @@ public class PressurePlate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        triggered = true;
-        wiredObject.GetComponent<Door>().Open();
+        if (this.enabled == true)
+        {
+            triggered = true;
+            wiredObject.GetComponent<Door>().Open();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        triggered = false;
-        wiredObject.GetComponent<Door>().Close();
+        if (this.enabled == true)
+        {
+            triggered = false;
+            wiredObject.GetComponent<Door>().Close();
+        }
     }
 }
