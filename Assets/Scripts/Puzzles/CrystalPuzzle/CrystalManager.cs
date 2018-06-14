@@ -39,6 +39,10 @@ public class CrystalManager : Singleton<CrystalManager> {
             {
                 return false;
             }
+            else if(crystalHolder[i].snappedObject.GetComponent<PickableObject>().name != "Crystal")
+            {
+                return false;
+            }
         }
         //showObjects();
         puzzleDone = true;

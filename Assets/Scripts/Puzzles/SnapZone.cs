@@ -5,7 +5,7 @@ public class SnapZone : MonoBehaviour {
 
     public Transform snapPoint;
     public bool objectSnapped;
-    private GameObject snappedObject;
+    public GameObject snappedObject;
 
 	// Use this for initialization
 	void Start () {
