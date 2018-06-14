@@ -26,7 +26,7 @@ public class DecisionNode : MonoBehaviour {
     {
         if(enabled)
         {
-            GameManager.Instance.UpdateCondition(targetCondition);
+            GameManager.Instance.conditions[targetCondition].UpdateCondition();
             this.enabled = false;
         }
     }

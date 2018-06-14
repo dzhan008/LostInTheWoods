@@ -19,7 +19,7 @@ public class Condition : MonoBehaviour {
             if(_counter >= maxCounter)
             {
                 fulfilled = true;
-                Debug.Log(conditionName + " condition completed!");
+                Debug.Log("Condition Fulfilled.");
             }
         }
     }
@@ -44,6 +44,7 @@ public class Condition : MonoBehaviour {
 
     public void UpdateCondition()
     {
+        Debug.Log("Updating Condition!");
         counter++;
     }
 
