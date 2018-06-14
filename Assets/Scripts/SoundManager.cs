@@ -19,4 +19,10 @@ public class SoundManager : Singleton<SoundManager> {
         GetComponent<AudioSource>().clip = (AudioClip)Resources.Load("Audio/Dialogue/" + clipName);
         GetComponent<AudioSource>().Play();
     }
+
+    public void PlaySFX(string clipName)
+    {
+        AudioClip clip = (AudioClip)Resources.Load("Audio/SFX/" + clipName);
+        GetComponent<AudioSource>().PlayOneShot(clip);
+    }
 }

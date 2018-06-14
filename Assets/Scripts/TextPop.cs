@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class TextPop : MonoBehaviour {
     public Text glyphText;
     public string glyphString;
+    public float delay;
     IEnumerator SpawnText()
     {
         for (int i = 0; i < glyphString.Length; i++)
         {
             glyphText.text += glyphString[i];
-            yield return new WaitForSeconds(1);
+            if (i % 2 == 0) SoundManager.Instance.PlaySFX("Flash");
+            yield return new WaitForSeconds(delay);
         }
     }
 	// Use this for initialization

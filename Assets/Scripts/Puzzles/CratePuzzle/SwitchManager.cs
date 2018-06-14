@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class SwitchManager : Singleton<SwitchManager> {
 
     public Text equationText;
+    public TextPop glyphText;
     public SnapZone[] pedestolSnapZone;
+    public GameObject[] appearObj;
     public bool puzzleDone = false;
     private int numPedestols = 5;
     private int numAnswer = 3;
@@ -24,6 +26,13 @@ public class SwitchManager : Singleton<SwitchManager> {
 	void Update () {
 		
 	}
+    private void showObjects()
+    {
+        for (int i = 0; i < appearObj.Length; i++)
+        {
+            appearObj[i].GetComponent<Door>().Open();
+        }
+    }
     private void generateEquation(int numEq)
     {
         int i = 0;
@@ -41,11 +50,7 @@ public class SwitchManager : Singleton<SwitchManager> {
                 answerKey[index] = true;
                 i++;
             }
-        }/*
-        for (i = 0; i < answerKey.Count; i++)
-        {
-            Debug.Log(answerKey[i]);
-        }*/
+        }
         equationText.text = text;
         return;
     }
@@ -56,12 +61,13 @@ public class SwitchManager : Singleton<SwitchManager> {
         {
             if (answerKey[i] != pedestolSnapZone[i].objectSnapped)
             {
-                Debug.Log("not done");
                 return false;
             }
         }
-        Debug.Log("All Match!");
         puzzleDone = true;
+        showObjects();
+        glyphText.spawnText();
         return true;
+
     }
 }
