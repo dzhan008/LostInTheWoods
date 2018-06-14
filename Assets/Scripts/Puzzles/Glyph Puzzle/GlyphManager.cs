@@ -37,5 +37,6 @@ public class GlyphManager : Singleton<GlyphManager> {
         }
         solved = true;
         SoundManager.Instance.PlaySFX("sfx_stone_door_slide");
+        SoundManager.Instance.Play("Forest1");
     }
 }

@@ -62,6 +62,7 @@ public class CrystalManager : Singleton<CrystalManager> {
         }
         puzzleDone = true;
         elevator.GetComponent<PressurePlate>().enabled = true;
+        SoundManager.Instance.Play("Desert5");
         return true;
 
     }
