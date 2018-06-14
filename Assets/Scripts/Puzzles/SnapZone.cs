@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class SnapZone : MonoBehaviour {
 
     public Transform snapPoint;
-    private bool objectSnapped;
+    public bool objectSnapped;
     private GameObject snappedObject;
 
 	// Use this for initialization
@@ -34,6 +33,7 @@ public class SnapZone : MonoBehaviour {
         {
             Debug.Log("Exiting snap zone!");
             objectSnapped = false;
+            if (!SwitchManager.Instance.puzzleDone) SwitchManager.Instance.checkPuzzle(other.gameObject);
         }
     }
 
@@ -54,5 +54,6 @@ public class SnapZone : MonoBehaviour {
             }
         }
         objectSnapped = true;
+        if (!SwitchManager.Instance.puzzleDone) SwitchManager.Instance.checkPuzzle(obj);
     }
 }
