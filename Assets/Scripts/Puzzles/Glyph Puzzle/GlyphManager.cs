@@ -6,6 +6,8 @@ public class GlyphManager : Singleton<GlyphManager> {
 
     public List<string> answer;
     public List<Glyph> glyphs;
+    public List<Door> doors;
+    public bool solved = false;
 
 	// Use this for initialization
 	void Start () {
@@ -29,5 +31,10 @@ public class GlyphManager : Singleton<GlyphManager> {
         }
         Debug.Log("Correct!");
         GameManager.Instance.UpdateCondition("GlyphPuzzleCompleted");
+        foreach(Door door in doors)
+        {
+            door.Open();
+        }
+        solved = true;
     }
 }

@@ -20,6 +20,7 @@ public class Glyph : MonoBehaviour {
 
     public void ChangeSymbol()
     {
+        if (GlyphManager.Instance.solved) return;
         currIndex++;
         if (currIndex == symbols.Count)
         {
