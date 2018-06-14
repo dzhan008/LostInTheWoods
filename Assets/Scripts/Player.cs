@@ -59,13 +59,10 @@ public class Player : MonoBehaviour {
                 }
                 else if (hit.transform.tag == "Pickable")
                 {
-                    heldObject = hit.transform.gameObject;
-                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
+                    if(hit.transform.GetComponent<PickableObject>().name == "Headphones")
                     {
-                        hit.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        hit.transform.GetComponent<Headphone>().showObjects();
                     }
-                    hit.transform.parent = playerCamera.transform;
-                    holdingObject = true;
                 }
             }
             else

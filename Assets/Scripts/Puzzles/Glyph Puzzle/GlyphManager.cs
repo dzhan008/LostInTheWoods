@@ -36,5 +36,6 @@ public class GlyphManager : Singleton<GlyphManager> {
             door.Open();
         }
         solved = true;
+        SoundManager.Instance.PlaySFX("sfx_stone_door_slide");
     }
 }

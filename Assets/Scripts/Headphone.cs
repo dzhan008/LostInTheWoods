@@ -5,13 +5,15 @@ using UnityEngine;
 public class Headphone : MonoBehaviour {
 
     public GameObject[] appearObj;
-    private void showObjects()
+    public void showObjects()
     {
         for (int i = 0; i < appearObj.Length; i++)
         {
             Debug.Log(i);
             appearObj[i].GetComponent<Door>().Open();
         }
+        SoundManager.Instance.PlaySFX("sfx_sci_fi_door_open");
+        Destroy(this.gameObject);
     }
     // Use this for initialization
     void Start () {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager> {
 
+    public AudioSource musicSource;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,5 +25,11 @@ public class SoundManager : Singleton<SoundManager> {
     {
         AudioClip clip = (AudioClip)Resources.Load("Audio/SFX/" + clipName);
         GetComponent<AudioSource>().PlayOneShot(clip);
+    }
+
+    public void PlayTrack(string clipName)
+    {
+        musicSource.clip = (AudioClip)Resources.Load("Audio/Music/" + clipName);
+        musicSource.Play();
     }
 }
